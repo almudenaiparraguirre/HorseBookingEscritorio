@@ -48,10 +48,9 @@ namespace EscritorioHorseBooking
             string contrasena = "Abcde123";
 
             // Registrar usuario en Firebase Authentication
-            // (Asume que ya tienes configurada la autenticación en Firebase)
 
             // Añadir usuario a la base de datos en tiempo real
-            FirebaseResponse response = await client.SetAsync("usuarios/" + email.Replace('.', ','), new { Email = email, Password = contrasena });
+            FirebaseResponse response = await client.SetAsync("trabajadores/" + email.Replace('.', ','), new { Email = email, Password = contrasena });
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -61,7 +60,10 @@ namespace EscritorioHorseBooking
             {
                 MessageBox.Show("Error al registrar el usuario en Firebase");
             }
-        }
 
+            InicioSesion inicio = new InicioSesion();
+            inicio.Show();
+            this.Close();
+        }
     }
 }
