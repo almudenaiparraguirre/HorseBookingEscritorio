@@ -44,7 +44,7 @@ namespace EscritorioHorseBooking
 
         private async void registrar_Click(object sender, EventArgs e)
         {
-            string email = "almudena@gmail.com";
+            string email = "email.tostring@gmail.com";
             string contrasena = "Abcde123";
 
             // Registrar usuario en Firebase Authentication

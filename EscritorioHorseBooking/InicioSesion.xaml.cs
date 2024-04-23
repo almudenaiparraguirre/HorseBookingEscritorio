@@ -27,7 +27,9 @@ namespace EscritorioHorseBooking
         public InicioSesion()
         {
             InitializeComponent();
-            this.config = config;
+#pragma warning disable CS1717 // Se ha asignado a la misma variable
+            config = config;
+#pragma warning restore CS1717 // Se ha asignado a la misma variable
         }
 
         private void buttonIniciarSesion_Click(object sender, RoutedEventArgs e)
@@ -72,7 +74,5 @@ namespace EscritorioHorseBooking
                 }
             });
         }
-
-
     }
 }
