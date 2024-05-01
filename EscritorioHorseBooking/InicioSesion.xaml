@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="InicioSesion" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
+        <TextBox x:Name="email" Width="150" Height="30" VerticalAlignment="Top"
+                 Margin="20,20,20,20" VerticalContentAlignment="Center" Text="Email"
+                 Foreground="LightGray" Padding="2" GotFocus="email_GotFocus"
+                 LostFocus="email_LostFocus"/>
+
+        <TextBox x:Name="contrasena" Width="150" Height="30" VerticalAlignment="Top"
+                 Margin="20,80,20,20" VerticalContentAlignment="Center" Text="Contraseña"
+                 Foreground="#D3D3D3" Padding="2" GotFocus="email_GotFocus"
+                 LostFocus="email_LostFocus"/>
+        
         <Button x:Name="buttonIniciarSesion" Content="Iniciar sesión"
                 Width="100" Height="50" Click="buttonIniciarSesion_Click"/>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using FireSharp.Interfaces;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
 using FireSharp.Response;
 using System;
 using System.Collections.Generic;
@@ -22,23 +23,30 @@ namespace EscritorioHorseBooking
     public partial class InicioSesion : Window
     {
 
-        private IFirebaseConfig config;
+        public IFirebaseConfig config = new FirebaseConfig
+
+        {
+            AuthSecret = "b4EKkNKwSvFpmAdcRdMRWPv90myyYgIirOv6QULs",
+            BasePath = "https://horsebooking-54bbe-default-rtdb.europe-west1.firebasedatabase.app"
+        };
+        public IFirebaseClient client;
 
         public InicioSesion()
         {
             InitializeComponent();
-#pragma warning disable CS1717 // Se ha asignado a la misma variable
-            config = config;
-#pragma warning restore CS1717 // Se ha asignado a la misma variable
+            client = new FireSharp.FirebaseClient(config);
+            if (client == null)
+            {
+                MessageBox.Show("Error en la conexión a Firebase");
+            }
         }
 
-        private void buttonIniciarSesion_Click(object sender, RoutedEventArgs e)
+        private async void buttonIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            string email = "almudena@gmail.com";
-            string contraseña = "Abcde123";
+            string emailText = email.Text.ToString();
+            string contraseñaText = contrasena.Text.ToString();
 
-            // Comprueba si el email y la contraseña no están vacíos
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(contraseña))
+            if (string.IsNullOrEmpty(emailText) || string.IsNullOrEmpty(contraseñaText))
             {
                 MessageBox.Show("Por favor, introduce tu email y contraseña.");
                 return;
@@ -46,22 +54,24 @@ namespace EscritorioHorseBooking
 
             // Accede a la base de datos en tiempo real
             IFirebaseClient client = new FireSharp.FirebaseClient(config);
-            client.GetAsync("trabajadores/" + email.Replace('.', ',')).ContinueWith(async (task) =>
+            try
             {
-                FirebaseResponse response = task.Result;
+                FirebaseResponse response = await client.GetAsync("trabajadores/" + emailText.Replace('.', ','));
 
                 // Comprueba si el usuario existe en la base de datos
                 if (response.Body != "null")
                 {
-                    // El usuario existe, ahora debes comprobar la contraseña
                     var trabajador = response.ResultAs<Dictionary<string, string>>();
-                    if (trabajador["Password"] == contraseña)
+                    if (trabajador["Password"] == contraseñaText)
                     {
-                        MessageBox.Show("Inicio de sesión exitoso.");
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        this.Close();
-                        // Aquí puedes abrir la ventana principal de la aplicación o realizar otras acciones
+                        // Dispatch UI updates back to the UI thread
+                        Dispatcher.Invoke(() =>
+                        {
+                            MessageBox.Show("Inicio de sesión exitoso.");
+                            Novedades mainWindow = new Novedades();
+                            mainWindow.Show();
+                            this.Close();
+                        });
                     }
                     else
                     {
@@ -72,7 +82,32 @@ namespace EscritorioHorseBooking
                 {
                     MessageBox.Show("El usuario no existe.");
                 }
-            });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to log in: " + ex.Message);
+            }
+        }
+
+        private void email_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                textBox.Text = ""; // Borra el texto cuando el TextBox recibe el foco
+                textBox.Foreground = Brushes.Black; // Cambia el color del texto a negro
+            }
+        }
+
+        private void email_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "Email";
+                textBox.Foreground = Brushes.LightGray; // Cambia el color del texto a gris (opcional)
+            }
         }
     }
+
 }
