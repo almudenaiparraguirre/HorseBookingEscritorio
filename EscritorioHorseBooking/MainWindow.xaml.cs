@@ -1,7 +1,10 @@
-﻿using FireSharp;
+﻿using FirebaseAdmin;
+using FirebaseAdmin.Auth;
+using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Google.Apis.Auth.OAuth2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +38,7 @@ namespace EscritorioHorseBooking
         public MainWindow()
         {
             InitializeComponent();
+
             client = new FireSharp.FirebaseClient(config);
             if (client == null)
             {
@@ -44,13 +48,13 @@ namespace EscritorioHorseBooking
 
         private async void registrar_Click(object sender, EventArgs e)
         {
-            string email = "email.tostring@gmail.com";
-            string contrasena = "Abcde123";
+            string emailTexto = email.Text.ToString();
+            string contrasenaTexto = contrasena.Text.ToString();
 
             // Registrar usuario en Firebase Authentication
 
             // Añadir usuario a la base de datos en tiempo real
-            FirebaseResponse response = await client.SetAsync("trabajadores/" + email.Replace('.', ','), new { Email = email, Password = contrasena });
+            FirebaseResponse response = await client.SetAsync("trabajadores/" + emailTexto.Replace('.', ','), new { Email = emailTexto, Password = contrasenaTexto });
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -64,6 +68,28 @@ namespace EscritorioHorseBooking
             InicioSesion inicio = new InicioSesion();
             inicio.Show();
             this.Close();
+        
+    }
+
+        private void email_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                textBox.Text = ""; // Borra el texto cuando el TextBox recibe el foco
+                textBox.Foreground = Brushes.Black; // Cambia el color del texto a negro
+            }
         }
+
+        private void email_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "Email";
+                textBox.Foreground = Brushes.LightGray; // Cambia el color del texto a gris (opcional)
+            }
+        }
+
     }
 }

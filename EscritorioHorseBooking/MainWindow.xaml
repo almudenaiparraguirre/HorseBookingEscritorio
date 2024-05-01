@@ -5,15 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscritorioHorseBooking"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="300" Width="500" MaxHeight="300"
+        MaxWidth="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
     <Grid>
         <TextBox x:Name="email" Width="150" Height="30" VerticalAlignment="Top"
-                 Margin="20,20,20,20"/>
+                 Margin="20,20,20,20" VerticalContentAlignment="Center" Text="Email"
+                 Foreground="LightGray" Padding="2" GotFocus="email_GotFocus"
+                 LostFocus="email_LostFocus"/>
 
         <TextBox x:Name="contrasena" Width="150" Height="30" VerticalAlignment="Top"
-                 Margin="20,80,20,20"/>
+                 Margin="20,80,20,20" VerticalContentAlignment="Center" Text="Contraseña"
+                 Foreground="#D3D3D3" Padding="2" GotFocus="email_GotFocus"
+                 LostFocus="email_LostFocus"/>
         
         <Button x:Name="registrar" Content="Registrar" Click="registrar_Click"
-                Width="150" Height="50"/>
+                Width="90" Height="30" Background="#7BB8B1" Margin="196,160,197.6,70.4"
+                Foreground="White"/>
     </Grid>
 </Window>
