@@ -68,8 +68,8 @@ namespace EscritorioHorseBooking
                         Dispatcher.Invoke(() =>
                         {
                             MessageBox.Show("Inicio de sesión exitoso.");
-                            Novedades mainWindow = new Novedades();
-                            mainWindow.Show();
+                            Novedades novedades = new Novedades();
+                            novedades.Show();
                             this.Close();
                         });
                     }
@@ -107,6 +107,13 @@ namespace EscritorioHorseBooking
                 textBox.Text = "Email";
                 textBox.Foreground = Brushes.LightGray; // Cambia el color del texto a gris (opcional)
             }
+        }
+
+        private void goToRegistro_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 

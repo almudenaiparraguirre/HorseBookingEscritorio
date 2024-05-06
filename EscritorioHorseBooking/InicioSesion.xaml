@@ -17,7 +17,9 @@
                  Foreground="#D3D3D3" Padding="2" GotFocus="email_GotFocus"
                  LostFocus="email_LostFocus"/>
         
+        <Button x:Name="buttonRegistro" Content="Registrarse"
+                Width="100" Height="50" Click="goToRegistro_Click"/>
         <Button x:Name="buttonIniciarSesion" Content="Iniciar sesión"
-                Width="100" Height="50" Click="buttonIniciarSesion_Click"/>
+                Width="100" Height="50" Click="buttonIniciarSesion_Click" Margin="347,262,346.6,108"/>
     </Grid>
 </Window>

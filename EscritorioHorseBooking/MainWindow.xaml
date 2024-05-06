@@ -17,7 +17,7 @@
                  Margin="20,80,20,20" VerticalContentAlignment="Center" Text="Contraseña"
                  Foreground="#D3D3D3" Padding="2" GotFocus="email_GotFocus"
                  LostFocus="email_LostFocus"/>
-        
+
         <Button x:Name="registrar" Content="Registrar" Click="registrar_Click"
                 Width="90" Height="30" Background="#7BB8B1" Margin="196,160,197.6,70.4"
                 Foreground="White"/>
