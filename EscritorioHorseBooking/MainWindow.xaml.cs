@@ -58,7 +58,7 @@ namespace EscritorioHorseBooking
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                MessageBox.Show("Usuario registrado correctamente en Firebase");
+                //MessageBox.Show("Usuario registrado correctamente en Firebase");
             }
             else
             {
