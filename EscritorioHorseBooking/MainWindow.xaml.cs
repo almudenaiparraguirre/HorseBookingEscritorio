@@ -49,7 +49,7 @@ namespace EscritorioHorseBooking
         private async void registrar_Click(object sender, EventArgs e)
         {
             string emailTexto = email.Text.ToString();
-            string contrasenaTexto = contrasena.Text.ToString();
+            string contrasenaTexto = contrasena.Password;
 
             // Registrar usuario en Firebase Authentication
 

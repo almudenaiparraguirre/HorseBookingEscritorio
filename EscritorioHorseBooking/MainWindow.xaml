@@ -6,20 +6,22 @@
         xmlns:local="clr-namespace:EscritorioHorseBooking"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500" MaxHeight="300"
-        MaxWidth="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+        MaxWidth="500" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="#7BB8B1">
     <Grid>
         <TextBox x:Name="email" Width="150" Height="30" VerticalAlignment="Top"
                  Margin="20,20,20,20" VerticalContentAlignment="Center" Text="Email"
                  Foreground="LightGray" Padding="2" GotFocus="email_GotFocus"
                  LostFocus="email_LostFocus"/>
 
-        <TextBox x:Name="contrasena" Width="150" Height="30" VerticalAlignment="Top"
-                 Margin="20,80,20,20" VerticalContentAlignment="Center" Text="Contraseña"
-                 Foreground="#D3D3D3" Padding="2" GotFocus="email_GotFocus"
+        <PasswordBox x:Name="contrasena" Width="150" Height="30" VerticalAlignment="Top"
+                 Margin="20,80,20,20" VerticalContentAlignment="Center"
+                 Foreground="Black" Padding="2" GotFocus="email_GotFocus"
                  LostFocus="email_LostFocus"/>
 
         <Button x:Name="registrar" Content="Registrar" Click="registrar_Click"
-                Width="90" Height="30" Background="#7BB8B1" Margin="196,160,197.6,70.4"
-                Foreground="White"/>
+                Width="90" Height="30" Background="AliceBlue" Margin="196,160,197.6,70.4"
+                Foreground="Black"/>
     </Grid>
 </Window>

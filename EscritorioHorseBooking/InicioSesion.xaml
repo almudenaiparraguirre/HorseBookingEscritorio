@@ -5,21 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscritorioHorseBooking"
         mc:Ignorable="d"
-        Title="InicioSesion" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="InicioSesion" Height="450" Width="600" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="#7BB8B1">
     <Grid>
-        <TextBox x:Name="email" Width="150" Height="30" VerticalAlignment="Top"
-                 Margin="20,20,20,20" VerticalContentAlignment="Center" Text="Email"
-                 Foreground="LightGray" Padding="2" GotFocus="email_GotFocus"
-                 LostFocus="email_LostFocus"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <TextBox x:Name="contrasena" Width="150" Height="30" VerticalAlignment="Top"
-                 Margin="20,80,20,20" VerticalContentAlignment="Center" Text="Contraseña"
-                 Foreground="#D3D3D3" Padding="2" GotFocus="email_GotFocus"
-                 LostFocus="email_LostFocus"/>
+        <Image Source="C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\Imagenes\logoCaballoHorseBooking.png" 
+               Height="70" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+
+        <TextBlock Text="¡Inicia sesión!" Grid.Row="1" HorizontalAlignment="Center"
+                   Margin="20" Foreground="AliceBlue" FontSize="20" FontFamily="Calibri"
+                   FontWeight="Bold"/>
+
+        <TextBox x:Name="email" Width="160" Height="30" VerticalAlignment="Center"
+                 VerticalContentAlignment="Center" Text="Email" Grid.Row="2"
+                 Foreground="LightGray" Padding="2" GotFocus="email_GotFocus"
+                 LostFocus="email_LostFocus" HorizontalAlignment="Center"/>
+
+        <PasswordBox x:Name="contrasena" Height="30" VerticalAlignment="Center"
+                 VerticalContentAlignment="Center"
+                 Foreground="Black" Padding="2" GotFocus="email_GotFocus"
+                 LostFocus="email_LostFocus" Grid.Row="3" Width="160"
+                 Margin="0,20,0,0"/>
+
+        <Button x:Name="buttonIniciarSesion" Content="Iniciar sesión" 
+                Click="buttonIniciarSesion_Click" Grid.Row="4" HorizontalAlignment="Center"
+                Height="30" Width="90" Background="AliceBlue" Margin="0,30,0,0"/>
         
-        <Button x:Name="buttonRegistro" Content="Registrarse"
-                Width="100" Height="50" Click="goToRegistro_Click"/>
-        <Button x:Name="buttonIniciarSesion" Content="Iniciar sesión"
-                Width="100" Height="50" Click="buttonIniciarSesion_Click" Margin="347,262,346.6,108"/>
+        <Button x:Name="buttonRegistro" Content="Registrar trabajador" Click="goToRegistro_Click"
+                Background="AliceBlue" HorizontalAlignment="Center" Grid.Row="5" Height="30"
+                Width="120"/>
     </Grid>
 </Window>

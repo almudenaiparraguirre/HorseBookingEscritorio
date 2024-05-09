@@ -44,7 +44,7 @@ namespace EscritorioHorseBooking
         private async void buttonIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
             string emailText = email.Text.ToString();
-            string contraseñaText = contrasena.Text.ToString();
+            string contraseñaText = contrasena.Password;
 
             if (string.IsNullOrEmpty(emailText) || string.IsNullOrEmpty(contraseñaText))
             {
