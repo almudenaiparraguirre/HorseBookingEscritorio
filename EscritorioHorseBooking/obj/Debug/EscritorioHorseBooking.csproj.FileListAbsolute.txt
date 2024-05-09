@@ -122,3 +122,7 @@ C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\bin\De
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\bin\Debug\Google.Apis.Core.xml
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\Chat.g.cs
+C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\ResumenClases.g.cs
+C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\Chat.baml
+C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\ResumenClases.baml

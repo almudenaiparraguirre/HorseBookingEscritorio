@@ -7,7 +7,13 @@
         mc:Ignorable="d"
         Title="Novedades" Height="450" Width="800">
     <Grid>
+        <TextBox x:Name="textBoxtituloNoticia" Margin="0" Height="30" Width="200"/>
+        <TextBox x:Name="textBoxdescNoticia" Margin="297,134,296.6,256" Height="30" Width="200"/>
+
         <Button x:Name="crearNovedad" Content="Crear noticia" Width="100" 
-                Height="35" Click="crearNovedad_Click"/>
+                Height="35" Click="crearNovedad_Click" Margin="348,257,345.6,128"/>
+
+        <Button x:Name="crearClase" Content="Crear clase" Width="100" 
+                Height="35" Click="crearClase_Click" Margin="348,324,345.6,61"/>
     </Grid>
 </Window>
