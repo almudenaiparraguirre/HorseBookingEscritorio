@@ -28,7 +28,7 @@
                    Margin="20" Foreground="AliceBlue" FontSize="20" FontFamily="Calibri"
                    FontWeight="Bold"/>
 
-        <TextBox x:Name="email" Width="160" Height="30" VerticalAlignment="Center"
+        <TextBox x:Name="email" Width="200" Height="30" VerticalAlignment="Center"
                  VerticalContentAlignment="Center" Text="Email" Grid.Row="2"
                  Foreground="LightGray" Padding="2" GotFocus="email_GotFocus"
                  LostFocus="email_LostFocus" HorizontalAlignment="Center"/>
@@ -36,13 +36,13 @@
         <PasswordBox x:Name="contrasena" Height="30" VerticalAlignment="Center"
                  VerticalContentAlignment="Center"
                  Foreground="Black" Padding="2" GotFocus="email_GotFocus"
-                 LostFocus="email_LostFocus" Grid.Row="3" Width="160"
+                 LostFocus="email_LostFocus" Grid.Row="3" Width="200"
                  Margin="0,20,0,0"/>
 
         <Button x:Name="buttonIniciarSesion" Content="Iniciar sesión" 
                 Click="buttonIniciarSesion_Click" Grid.Row="4" HorizontalAlignment="Center"
-                Height="30" Width="90" Background="AliceBlue" Margin="0,30,0,0"/>
-        
+                Height="30" Width="120" Background="AliceBlue" Margin="0,30,0,0"/>
+
         <Button x:Name="buttonRegistro" Content="Registrar trabajador" Click="goToRegistro_Click"
                 Background="AliceBlue" HorizontalAlignment="Center" Grid.Row="5" Height="30"
                 Width="120"/>

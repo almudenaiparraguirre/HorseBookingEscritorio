@@ -91,5 +91,11 @@ namespace EscritorioHorseBooking
             }
         }
 
+        private void volverInicioSesion_Click(object sender, RoutedEventArgs e)
+        {
+            InicioSesion inicioSesion = new InicioSesion();
+            inicioSesion.Show();
+            this.Close();
+        }
     }
 }

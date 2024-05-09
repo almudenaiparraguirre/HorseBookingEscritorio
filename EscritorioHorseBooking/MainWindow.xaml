@@ -10,18 +10,33 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Background="#7BB8B1">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="¡Registra a un trabajador!" Margin="0,20,0,0" Grid.Row="0"
+                   HorizontalAlignment="Center" FontSize="20" Foreground="AliceBlue"
+                   FontWeight="Bold"/>
+
         <TextBox x:Name="email" Width="150" Height="30" VerticalAlignment="Top"
-                 Margin="20,20,20,20" VerticalContentAlignment="Center" Text="Email"
+                 VerticalContentAlignment="Center" Text="Email"
                  Foreground="LightGray" Padding="2" GotFocus="email_GotFocus"
-                 LostFocus="email_LostFocus"/>
+                 LostFocus="email_LostFocus" Grid.Row="1"/>
 
         <PasswordBox x:Name="contrasena" Width="150" Height="30" VerticalAlignment="Top"
-                 Margin="20,80,20,20" VerticalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
                  Foreground="Black" Padding="2" GotFocus="email_GotFocus"
-                 LostFocus="email_LostFocus"/>
+                 LostFocus="email_LostFocus" Grid.Row="2"/>
 
         <Button x:Name="registrar" Content="Registrar" Click="registrar_Click"
-                Width="90" Height="30" Background="AliceBlue" Margin="196,160,197.6,70.4"
-                Foreground="Black"/>
+                Width="90" Height="30" Background="AliceBlue"
+                Foreground="Black" Grid.Row="3"/>
+
+        <Button x:Name="volverInicioSesion" Content="Volver" Width="100" Height="30"
+                Background="AliceBlue" Grid.Row="4" Click="volverInicioSesion_Click"/>
     </Grid>
 </Window>
