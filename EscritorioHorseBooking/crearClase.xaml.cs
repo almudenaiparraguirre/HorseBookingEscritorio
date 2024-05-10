@@ -67,44 +67,63 @@ namespace EscritorioHorseBooking
 
         private async void crearClase_Click(object sender, RoutedEventArgs e)
         {
-            string tituloClase = textBoxTituloClase.Text.ToString();
-            string descripcion = textBoxDescripcionClase.Text.ToString();
-            string fecha_fin = fechaFinDatePicker.ToString();
-            string fecha_inicio = fechaInicioDatePicker.ToString();
-            int hora = 0, minuto = 0;
-            bool horaValida = int.TryParse(comboBoxHora.SelectedItem?.ToString() ?? "", out hora);
-            bool minutoValido = int.TryParse(comboBoxMinutos.SelectedItem?.ToString() ?? "", out minuto);
-            int precio;
-            bool precioValido = int.TryParse(precioTextBox.Text, out precio);
-            bool resultado = int.TryParse(precioTextBox.Text, out precio);
-            string tipo = comboBoxDisciplina.SelectedItem.ToString();
-            string profesor = comboBoxProfesor.SelectedItem.ToString();
+            string tituloClase = textBoxTituloClase.Text;
+            string descripcion = textBoxDescripcionClase.Text;
+            string fecha_fin = fechaFinDatePicker.SelectedDate?.ToString("yyyy-MM-dd") ?? "";
+            string fecha_inicio = fechaInicioDatePicker.SelectedDate?.ToString("yyyy-MM-dd") ?? "";
 
-            if (!horaValida || !minutoValido || !precioValido)
+            if (!(comboBoxHora.SelectedItem is ComboBoxItem horaItem) ||
+                !int.TryParse(horaItem.Content.ToString(), out int hora))
             {
-                MessageBox.Show("Por favor, verifica que todos los campos están correctos y completos.");
+                MessageBox.Show("Selecciona una hora válida.");
+                return;
+            }
+
+            if (!(comboBoxMinutos.SelectedItem is ComboBoxItem minutoItem) ||
+                !int.TryParse(minutoItem.Content.ToString(), out int minuto))
+            {
+                MessageBox.Show("Selecciona un minuto válido.");
+                return;
+            }
+
+            if (!int.TryParse(precioTextBox.Text, out int precio))
+            {
+                MessageBox.Show("Ingresa un precio válido.");
+                return;
+            }
+
+            string tipo = (comboBoxDisciplina.SelectedItem as ComboBoxItem)?.Content.ToString();
+            string profesor = (comboBoxProfesor.SelectedItem as ComboBoxItem)?.Content.ToString();
+
+            if (string.IsNullOrEmpty(tipo) || string.IsNullOrEmpty(profesor))
+            {
+                MessageBox.Show("Selecciona un tipo de disciplina y un profesor.");
                 return;
             }
 
             try
             {
-                FirebaseResponse response = await client.PushAsync("clases/", new
+                var clase = new
                 {
                     titulo = tituloClase,
                     descripcion = descripcion,
-                    fecha_fin = fecha_fin,
-                    fecha_inicio = fecha_inicio,
-                    precio = precio,
-                    tipo = tipo,
-                    hora = horaValida,
-                    minuto = minutoValido,
-                    profesor = profesor
-                });
+                    fecha_inicio,
+                    fecha_fin,
+                    hora,
+                    minuto,
+                    precio,
+                    tipo,
+                    profesor
+                };
+
+                FirebaseResponse response = await client.PushAsync("clases/", clase);
+                MessageBox.Show("Clase creada exitosamente.");
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al subir la clase");
+                MessageBox.Show("Error al subir la clase a Firebase: " + ex.Message);
             }
         }
+
     }
 }
