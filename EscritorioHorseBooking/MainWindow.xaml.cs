@@ -71,26 +71,6 @@ namespace EscritorioHorseBooking
         
     }
 
-        private void email_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null)
-            {
-                textBox.Text = ""; // Borra el texto cuando el TextBox recibe el foco
-                textBox.Foreground = Brushes.Black; // Cambia el color del texto a negro
-            }
-        }
-
-        private void email_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                textBox.Text = "Email";
-                textBox.Foreground = Brushes.LightGray; // Cambia el color del texto a gris (opcional)
-            }
-        }
-
         private void volverInicioSesion_Click(object sender, RoutedEventArgs e)
         {
             InicioSesion inicioSesion = new InicioSesion();

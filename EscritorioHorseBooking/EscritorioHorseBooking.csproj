@@ -212,10 +212,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="crearClase.xaml.cs">
+      <DependentUpon>crearClase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaInicial.xaml.cs">
+      <DependentUpon>PantallaInicial.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ResumenClases.xaml.cs">
       <DependentUpon>ResumenClases.xaml</DependentUpon>
     </Compile>
     <Page Include="Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="crearClase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -242,6 +252,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Novedades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PantallaInicial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

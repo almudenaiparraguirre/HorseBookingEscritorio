@@ -5,46 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscritorioHorseBooking"
         mc:Ignorable="d"
-        Title="InicioSesion" Height="450" Width="600" 
+        Title="InicioSesion" Height="420" Width="500" 
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Background="#7BB8B1">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
         <Image Source="C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\Imagenes\logoCaballoHorseBooking.png" 
-               Height="70" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+               Height="70" VerticalAlignment="Center" Grid.Row="0" 
+               HorizontalAlignment="Center" Margin="0,20,0,0"/>
 
         <TextBlock Text="¡Inicia sesión!" Grid.Row="1" HorizontalAlignment="Center"
-                   Margin="20" Foreground="AliceBlue" FontSize="20" FontFamily="Calibri"
-                   FontWeight="Bold"/>
+                   Foreground="AliceBlue" FontSize="20" FontFamily="Calibri"
+                   FontWeight="Bold" />
 
-        <TextBox x:Name="email" Width="200" Height="30" VerticalAlignment="Center"
-                 VerticalContentAlignment="Center" Text="Email" Grid.Row="2"
-                 Foreground="LightGray" Padding="2" GotFocus="email_GotFocus"
-                 LostFocus="email_LostFocus" HorizontalAlignment="Center"/>
+        <TextBlock Text="Email" Grid.Row="2" HorizontalAlignment="Left"
+                   Foreground="AliceBlue" FontSize="15" FontFamily="Calibri" 
+                   Grid.RowSpan="3" Margin="98,10.4,0,9.8"/>
 
-        <PasswordBox x:Name="contrasena" Height="30" VerticalAlignment="Center"
-                 VerticalContentAlignment="Center"
-                 Foreground="Black" Padding="2" GotFocus="email_GotFocus"
-                 LostFocus="email_LostFocus" Grid.Row="3" Width="200"
-                 Margin="0,20,0,0"/>
+        <TextBox x:Name="email" Width="300" Height="30" VerticalAlignment="Center"
+                 Grid.Row="3" Foreground="Black" HorizontalAlignment="Center"
+                 Padding="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <TextBlock Text="Contraseña" Grid.Row="4" HorizontalAlignment="Left"
+                   Foreground="AliceBlue" FontSize="15" FontFamily="Calibri" 
+                   Margin="98,7,0,53.4" Grid.RowSpan="3"/>
+
+        <PasswordBox x:Name="contrasena" Grid.Row="5" Width="300" Height="30"
+                     VerticalAlignment="Center" HorizontalAlignment="Center"
+                     Foreground="Black" Padding="2" VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"/>
 
         <Button x:Name="buttonIniciarSesion" Content="Iniciar sesión" 
-                Click="buttonIniciarSesion_Click" Grid.Row="4" HorizontalAlignment="Center"
-                Height="30" Width="120" Background="AliceBlue" Margin="0,30,0,0"/>
+                Grid.Row="6" HorizontalAlignment="Center" Click="buttonIniciarSesion_Click"
+                Height="30" Width="200" Background="AliceBlue" Margin="10"/>
 
-        <Button x:Name="buttonRegistro" Content="Registrar trabajador" Click="goToRegistro_Click"
-                Background="AliceBlue" HorizontalAlignment="Center" Grid.Row="5" Height="30"
-                Width="120"/>
+        <Button x:Name="buttonRegistro" Content="Registrar trabajador" 
+                Grid.Row="7" HorizontalAlignment="Center" Height="30"
+                Width="200" Background="AliceBlue" Click="goToRegistro_Click"/>
     </Grid>
 </Window>
