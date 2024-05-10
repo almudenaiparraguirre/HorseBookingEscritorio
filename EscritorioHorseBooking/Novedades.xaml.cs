@@ -62,5 +62,24 @@ namespace EscritorioHorseBooking
                 descripcion = descripcion, fecha_fin = fecha_fin, fecha_inicio = fecha_inicio,
                 precio = precio, tipo = tipo});
         }
+        private void Inicio_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mostrar la página de inicio
+        }
+
+        private void ResumenClases_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mostrar el resumen de las clases
+        }
+
+        private void Chat_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para abrir el chat
+        }
+
+        private void Clases_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mostrar la página de clases
+        }
     }
 }

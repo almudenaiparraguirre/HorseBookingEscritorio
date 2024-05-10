@@ -10,12 +10,28 @@
         Background="#7BB8B1">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        
-        
+
+        <Menu DockPanel.Dock="Top" Background="#5B9BA6" Foreground="White">
+            <MenuItem Header="Inicio" Click="Inicio_Click"/>
+            <MenuItem Header="Novedades" Click="Novedades_Click"/>
+            <MenuItem Header="Resumen Clases" Click="ResumenClases_Click"/>
+            <MenuItem Header="Chat" Click="Chat_Click"/>
+            <MenuItem Header="Clases" Click="Clases_Click"/>
+        </Menu>
+
+        <TextBlock Text="Bienvenido a HorseBooking" FontSize="20" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Foreground="AliceBlue" FontWeight="Bold"
+                       Grid.Row="1"/>
+        <Image Source="C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\Imagenes\logoCaballoHorseBooking.png" 
+               Height="100" VerticalAlignment="Center" Grid.Row="2" 
+               HorizontalAlignment="Center" Margin="0,20,0,0"/>
+        <TextBlock Text="Tu plataforma centralizada para gestionar y reservar clases de equitación."
+                   FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="AliceBlue" FontWeight="Bold" Grid.Row="3"/>
     </Grid>
 </Window>

@@ -68,8 +68,8 @@ namespace EscritorioHorseBooking
                         Dispatcher.Invoke(() =>
                         {
                             MessageBox.Show("Inicio de sesión exitoso.");
-                            Novedades novedades = new Novedades();
-                            novedades.Show();
+                            PantallaInicial pantallaInicial = new PantallaInicial();
+                            pantallaInicial.Show();
                             this.Close();
                         });
                     }
@@ -91,8 +91,8 @@ namespace EscritorioHorseBooking
 
         private void goToRegistro_Click(object sender, RoutedEventArgs e)
         {
-            PantallaInicial pantallaInicial = new PantallaInicial();
-            pantallaInicial.Show();
+            MainWindow main = new MainWindow();
+            main.Show();
             this.Close();
         }
     }

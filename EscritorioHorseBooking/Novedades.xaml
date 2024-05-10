@@ -9,6 +9,14 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Background="#7BB8B1">
     <Grid>
+        <Menu DockPanel.Dock="Top" Background="#7BB8B1" Foreground="White">
+            <MenuItem Header="Inicio" Click="Inicio_Click"/>
+            <MenuItem Header="Novedades"/>
+            <MenuItem Header="Resumen Clases" Click="ResumenClases_Click"/>
+            <MenuItem Header="Chat" Click="Chat_Click"/>
+            <MenuItem Header="Clases" Click="Clases_Click"/>
+        </Menu>
+        
         <TextBox x:Name="textBoxtituloNoticia" Margin="0" Height="30" Width="200"/>
         <TextBox x:Name="textBoxdescNoticia" Margin="297,134,296.6,256" Height="30" Width="200"/>
 

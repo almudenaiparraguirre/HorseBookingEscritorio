@@ -23,5 +23,31 @@ namespace EscritorioHorseBooking
         {
             InitializeComponent();
         }
+        private void Inicio_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mostrar la página de inicio
+        }
+
+        private void Novedades_Click(object sender, RoutedEventArgs e)
+        {
+            var novedades = new Novedades();
+            novedades.Show();
+            this.Close();
+        }
+
+        private void ResumenClases_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mostrar el resumen de las clases
+        }
+
+        private void Chat_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para abrir el chat
+        }
+
+        private void Clases_Click(object sender, RoutedEventArgs e)
+        {
+            // Código para mostrar la página de clases
+        }
     }
 }
