@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscritorioHorseBooking"
         mc:Ignorable="d"
-        Title="Chat" Height="450" Width="800">
+        Title="Chat" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Menu DockPanel.Dock="Top" Background="#7BB8B1" Foreground="White">
             <MenuItem Header="Inicio" Click="Inicio_Click"/>
             <MenuItem Header="Novedades" Click="Novedades_Click"/>
-            <MenuItem Header="Resumen Clases" Click="ResumenClases_Click"/>
-            <MenuItem Header="Chat" Click="Chat_Click"/>
             <MenuItem Header="Clases" Click="Clases_Click"/>
+            <MenuItem Header="Chat" Foreground="Black" Background="AliceBlue"/>
+            <MenuItem Header="Perfil" Click="PerfilUsuario_Click"/>
         </Menu>
     </Grid>
 </Window>

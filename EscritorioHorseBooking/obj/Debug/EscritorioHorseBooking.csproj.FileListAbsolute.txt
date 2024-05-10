@@ -130,3 +130,5 @@ C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\De
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\PantallaInicial.g.cs
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\crearClase.baml
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\PantallaInicial.baml
+C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\PerfilUsuario.g.cs
+C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\PerfilUsuario.baml

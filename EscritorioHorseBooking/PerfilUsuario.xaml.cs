@@ -15,17 +15,19 @@ using System.Windows.Shapes;
 namespace EscritorioHorseBooking
 {
     /// <summary>
-    /// Lógica de interacción para crearClase.xaml
+    /// Lógica de interacción para PerfilUsuario.xaml
     /// </summary>
-    public partial class crearClase : Window
+    public partial class PerfilUsuario : Window
     {
-        public crearClase()
+        public PerfilUsuario()
         {
             InitializeComponent();
         }
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
-            // Código para mostrar la página de inicio
+            var pantalla = new PantallaInicial();
+            pantalla.Show();
+            this.Close();
         }
 
         private void Novedades_Click(object sender, RoutedEventArgs e)
@@ -42,10 +44,10 @@ namespace EscritorioHorseBooking
             this.Close();
         }
 
-        private void PerfilUsuario_Click(object sender, RoutedEventArgs e)
+        private void Clases_Click(object sender, RoutedEventArgs e)
         {
-            var perfil = new PerfilUsuario();
-            perfil.Show();
+            var crearClase = new crearClase();
+            crearClase.Show();
             this.Close();
         }
     }

@@ -218,6 +218,9 @@
     <Compile Include="PantallaInicial.xaml.cs">
       <DependentUpon>PantallaInicial.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PerfilUsuario.xaml.cs">
+      <DependentUpon>PerfilUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ResumenClases.xaml.cs">
       <DependentUpon>ResumenClases.xaml</DependentUpon>
     </Compile>
@@ -256,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PantallaInicial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PerfilUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

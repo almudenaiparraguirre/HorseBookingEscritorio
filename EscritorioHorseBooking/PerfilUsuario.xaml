@@ -1,20 +1,18 @@
-﻿<Window x:Class="EscritorioHorseBooking.crearClase"
+﻿<Window x:Class="EscritorioHorseBooking.PerfilUsuario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscritorioHorseBooking"
         mc:Ignorable="d"
-        Title="crearClase" Height="450" Width="800" 
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Background="#7BB8B1">
+        Title="PerfilUsuario" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Menu DockPanel.Dock="Top" Background="#7BB8B1" Foreground="White">
             <MenuItem Header="Inicio" Click="Inicio_Click"/>
             <MenuItem Header="Novedades" Click="Novedades_Click"/>
-            <MenuItem Header="Clases" Foreground="Black" Background="AliceBlue"/>
+            <MenuItem Header="Clases" Click="Clases_Click"/>
             <MenuItem Header="Chat" Click="Chat_Click"/>
-            <MenuItem Header="Perfil" Click="PerfilUsuario_Click"/>
+            <MenuItem Header="Perfil" Foreground="Black" Background="AliceBlue"/>
         </Menu>
     </Grid>
 </Window>

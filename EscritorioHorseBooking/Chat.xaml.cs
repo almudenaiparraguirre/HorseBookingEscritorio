@@ -23,9 +23,12 @@ namespace EscritorioHorseBooking
         {
             InitializeComponent();
         }
+
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
-            // Código para mostrar la página de inicio
+            var pantalla = new PantallaInicial();
+            pantalla.Show();
+            this.Close();
         }
 
         private void Novedades_Click(object sender, RoutedEventArgs e)
@@ -35,19 +38,18 @@ namespace EscritorioHorseBooking
             this.Close();
         }
 
-        private void ResumenClases_Click(object sender, RoutedEventArgs e)
-        {
-            // Código para mostrar el resumen de las clases
-        }
-
-        private void Chat_Click(object sender, RoutedEventArgs e)
-        {
-            // Código para abrir el chat
-        }
-
         private void Clases_Click(object sender, RoutedEventArgs e)
         {
-            // Código para mostrar la página de clases
+            var crearClase = new crearClase();
+            crearClase.Show();
+            this.Close();
+        }
+
+        private void PerfilUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            var perfil = new PerfilUsuario();
+            perfil.Show();
+            this.Close();
         }
     }
 }

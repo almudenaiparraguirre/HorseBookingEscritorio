@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscritorioHorseBooking"
         mc:Ignorable="d"
-        Title="ResumenClases" Height="450" Width="800">
+        Title="ResumenClases" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Menu DockPanel.Dock="Top" Background="#7BB8B1" Foreground="White">
             <MenuItem Header="Inicio" Click="Inicio_Click"/>
