@@ -5,10 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscritorioHorseBooking"
         mc:Ignorable="d"
-        Title="crearClase" Height="450" Width="800" 
+        Title="crearClase" Height="480" Width="800" 
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Background="#7BB8B1">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
         <Menu DockPanel.Dock="Top" Background="#7BB8B1" Foreground="White">
             <MenuItem Header="Inicio" Click="Inicio_Click"/>
             <MenuItem Header="Novedades" Click="Novedades_Click"/>
@@ -16,5 +37,154 @@
             <MenuItem Header="Chat" Click="Chat_Click"/>
             <MenuItem Header="Perfil" Click="PerfilUsuario_Click"/>
         </Menu>
+
+        <TextBlock Text="Crear clase" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center"
+                   FontSize="20" Foreground="White" FontWeight="Bold" Margin="0,10,0,0"/>
+
+        <TextBlock Text="Título de la clase" Grid.Column="0" Grid.Row="2" Margin="15,15,0,0"
+                   HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"/>
+        <TextBox x:Name="textBoxTituloClase" Grid.Row="3" Grid.Column="0" Margin="15,5,15,0"
+                 Height="25" VerticalContentAlignment="Center" VerticalAlignment="Top"/>
+
+        <TextBlock Text="Descripción de la clase" Grid.Column="1" Grid.Row="2" Margin="15,15,0,0"
+                   HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"/>
+        <TextBox x:Name="textBoxDescripcionClase" Grid.Row="3" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="2" 
+                 Margin="15,5,15,0" Height="150" TextWrapping="Wrap"/>
+
+        <TextBlock Text="Fecha de inicio" Grid.Column="0" Grid.Row="4" Margin="15,0,0,0"
+                   HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"
+                   VerticalAlignment="Center"/>
+        <DatePicker Name="fechaInicioDatePicker" Grid.Row="5" Margin="15,0,0,0"/>
+
+        <TextBlock Text="Fecha final" Grid.Column="0" Grid.Row="6" Margin="15,0,0,0"
+                   HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"
+                   VerticalAlignment="Center"/>
+        <DatePicker Name="fechaFinDatePicker" Grid.Row="7" Margin="15,0,0,0"/>
+
+        <TextBlock Text="Hora" Grid.Column="0" Grid.Row="8" Margin="15,15,0,0"
+                   HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"
+                   VerticalAlignment="Center"/>
+        <ComboBox Name="comboBoxHora" Grid.Column="0" Grid.Row="9" Margin="15,10,15,0"
+                  Height="20" Width="50" HorizontalAlignment="Left">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="16"/>
+            <ComboBoxItem Content="17"/>
+            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="21"/>
+            <ComboBoxItem Content="22"/>
+            <ComboBoxItem Content="23"/>
+            <ComboBoxItem Content="00"/>
+        </ComboBox>
+        <ComboBox Name="comboBoxMinutos" Grid.Column="0" Grid.Row="9" Margin="80,10,15,0"
+                  Height="20" Width="50" HorizontalAlignment="Left">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="16"/>
+            <ComboBoxItem Content="17"/>
+            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="21"/>
+            <ComboBoxItem Content="22"/>
+            <ComboBoxItem Content="23"/>
+            <ComboBoxItem Content="24"/>
+            <ComboBoxItem Content="25"/>
+            <ComboBoxItem Content="26"/>
+            <ComboBoxItem Content="27"/>
+            <ComboBoxItem Content="28"/>
+            <ComboBoxItem Content="29"/>
+            <ComboBoxItem Content="30"/>
+            <ComboBoxItem Content="31"/>
+            <ComboBoxItem Content="32"/>
+            <ComboBoxItem Content="33"/>
+            <ComboBoxItem Content="34"/>
+            <ComboBoxItem Content="35"/>
+            <ComboBoxItem Content="36"/>
+            <ComboBoxItem Content="37"/>
+            <ComboBoxItem Content="38"/>
+            <ComboBoxItem Content="39"/>
+            <ComboBoxItem Content="40"/>
+            <ComboBoxItem Content="41"/>
+            <ComboBoxItem Content="42"/>
+            <ComboBoxItem Content="43"/>
+            <ComboBoxItem Content="44"/>
+            <ComboBoxItem Content="45"/>
+            <ComboBoxItem Content="46"/>
+            <ComboBoxItem Content="47"/>
+            <ComboBoxItem Content="48"/>
+            <ComboBoxItem Content="49"/>
+            <ComboBoxItem Content="50"/>
+            <ComboBoxItem Content="51"/>
+            <ComboBoxItem Content="52"/>
+            <ComboBoxItem Content="53"/>
+            <ComboBoxItem Content="54"/>
+            <ComboBoxItem Content="55"/>
+            <ComboBoxItem Content="56"/>
+            <ComboBoxItem Content="57"/>
+            <ComboBoxItem Content="58"/>
+            <ComboBoxItem Content="59"/>
+        </ComboBox>
+
+        <TextBlock Text="Precio" Grid.Column="1" Grid.Row="8" Margin="15,15,0,0"
+                   HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="precioTextBox" Grid.Row="9" Grid.Column="1" Margin="10,5,10,5"
+                 Width="100" HorizontalAlignment="Left"/>
+
+        <TextBlock Text="Disciplina de la clase" Grid.Column="2" Grid.Row="8" Margin="15,15,0,0"
+                   HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"
+                   VerticalAlignment="Center"/>
+        <ComboBox Name="comboBoxDisciplina" Grid.Column="2" Grid.Row="9" Margin="15,10,15,0"
+                  Height="20" HorizontalAlignment="Left" Width="180">
+            <ComboBoxItem Content="Doma"/>
+            <ComboBoxItem Content="Salto"/>
+            <ComboBoxItem Content="Concurso completo"/>
+            <ComboBoxItem Content="Paseo"/>
+        </ComboBox>
+
+        <TextBlock Text="Profesor" Grid.Column="0" Grid.Row="10" Margin="15,15,0,0"
+                   HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"
+                   VerticalAlignment="Center"/>
+        <ComboBox Name="comboBoxProfesor" Grid.Column="0" Grid.Row="11" Margin="15,10,15,0"
+                  Height="20" HorizontalAlignment="Left" Width="180">
+            <ComboBoxItem Content="Daniel"/>
+            <ComboBoxItem Content="Jesús"/>
+            <ComboBoxItem Content="Marta"/>
+            <ComboBoxItem Content="Julia"/>
+        </ComboBox>
+
+        <Button x:Name="crear" Grid.Column="1" Grid.Row="12" Content="Crear clase"
+                Width="80" VerticalAlignment="Bottom" Height="25" Background="AliceBlue"
+                 Click="crearClase_Click"/>
     </Grid>
 </Window>

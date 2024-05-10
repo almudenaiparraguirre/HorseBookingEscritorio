@@ -49,19 +49,6 @@ namespace EscritorioHorseBooking
             FirebaseResponse response = await client.PushAsync("novedades/", new { titulo = tituloNovedad, descripcion = descripcion, fecha = DateTime.Now });
         }
 
-        private async void crearClase_Click(object sender, RoutedEventArgs e)
-        {
-            string descripcion = "clase creada desde escritorio";
-            string fecha_fin = "mañana";
-            string fecha_inicio = "hoy";
-            int precio = 25;
-            string tipo = "Doma";
-            string tituloClase = "Clase avanzada de doma";
-
-            FirebaseResponse response = await client.PushAsync("clases/", new { titulo = tituloClase, 
-                descripcion = descripcion, fecha_fin = fecha_fin, fecha_inicio = fecha_inicio,
-                precio = precio, tipo = tipo});
-        }
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
             var pantalla = new PantallaInicial();

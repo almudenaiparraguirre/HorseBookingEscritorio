@@ -46,7 +46,7 @@
                 Background="AliceBlue" Grid.Row="6" RenderTransformOrigin="0.552,-6.572"/>
 
             <Button x:Name="crearClase" Content="Ver noticias creadas" Width="100" 
-                Height="25" Click="crearClase_Click" Margin="0,20,0,0"
+                Height="25" Margin="0,20,0,0"
                 Background="AliceBlue" Grid.Row="7"/>
     </Grid>
     </ScrollViewer>
