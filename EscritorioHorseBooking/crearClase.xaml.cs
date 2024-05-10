@@ -1,6 +1,7 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +29,14 @@ namespace EscritorioHorseBooking
             AuthSecret = "b4EKkNKwSvFpmAdcRdMRWPv90myyYgIirOv6QULs",
             BasePath = "https://horsebooking-54bbe-default-rtdb.europe-west1.firebasedatabase.app"
         };
-        IFirebaseClient client;
+        IFirebaseClient client; 
+        public List<Clase> ListaClases { get; set; }
 
         public crearClase()
         {
             InitializeComponent();
             client = new FireSharp.FirebaseClient(config);
+            ListaClases = new List<Clase>();
             if (client == null)
             {
                 MessageBox.Show("Error en la conexión a Firebase");
@@ -63,6 +66,50 @@ namespace EscritorioHorseBooking
             var perfil = new PerfilUsuario();
             perfil.Show();
             this.Close();
+        }
+
+        public class Clase
+        {
+            public string Titulo { get; set; }
+            public string Descripcion { get; set; }
+            public string FechaInicio { get; set; }
+            public string FechaFin { get; set; }
+            public int Hora { get; set; }
+            public int Minutos { get; set; }
+            public int Precio { get; set; }
+            public string Disciplina { get; set; }
+            public string Profesor { get; set; }
+        }
+
+        private async void VerClases_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FirebaseResponse response = await client.GetAsync("clases/");
+                var data = JsonConvert.DeserializeObject<Dictionary<string, Clase>>(response.Body);
+                if (data == null)
+                {
+                    MessageBox.Show("No se encontraron datos.");
+                    return;
+                }
+
+                ListaClases.Clear();
+                foreach (var item in data.Values)
+                {
+                    ListaClases.Add(item);
+                }
+
+                dataGridClases.ItemsSource = ListaClases;
+                dataGridClases.Items.Refresh();
+            }
+            catch (JsonException jsonEx)
+            {
+                MessageBox.Show("Error al parsear los datos de Firebase: " + jsonEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar clases desde Firebase: " + ex.Message);
+            }
         }
 
         private async void crearClase_Click(object sender, RoutedEventArgs e)
@@ -127,3 +174,4 @@ namespace EscritorioHorseBooking
 
     }
 }
+
