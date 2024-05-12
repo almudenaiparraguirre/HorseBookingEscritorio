@@ -54,7 +54,8 @@ namespace EscritorioHorseBooking
             // Registrar usuario en Firebase Authentication
 
             // Añadir usuario a la base de datos en tiempo real
-            FirebaseResponse response = await client.SetAsync("trabajadores/" + emailTexto.Replace('.', ','), new { Email = emailTexto, Password = contrasenaTexto });
+            FirebaseResponse response = await client.SetAsync("trabajadores/" + emailTexto.Replace('.', ','), 
+                new { Email = emailTexto, Password = contrasenaTexto });
 
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {

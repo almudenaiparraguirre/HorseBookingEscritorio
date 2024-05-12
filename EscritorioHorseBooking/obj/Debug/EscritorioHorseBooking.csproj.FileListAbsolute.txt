@@ -132,3 +132,4 @@ C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\De
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\PantallaInicial.baml
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\PerfilUsuario.g.cs
 C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\obj\Debug\PerfilUsuario.baml
+C:\Users\almud\source\repos\EscritorioHorseBooking\EscritorioHorseBooking\bin\Debug\Firebase.Storage.dll
