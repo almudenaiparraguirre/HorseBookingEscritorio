@@ -59,6 +59,7 @@ namespace EscritorioHorseBooking
             FirebaseResponse response = await client.PushAsync("novedades/", new { titulo = tituloNovedad, descripcion = descripcion, fecha = DateTime.Now });
             var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Body);
             string novedadId = result["name"];
+            await client.UpdateAsync($"novedades/{novedadId}", new { id = novedadId, titulo = tituloNovedad, descripcion = descripcion, fecha = DateTime.Now });
 
             if (displayImage.Source != null)
             {
