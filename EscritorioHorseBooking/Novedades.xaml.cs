@@ -34,12 +34,13 @@ namespace EscritorioHorseBooking
         };
         IFirebaseClient client;
         FirebaseStorage firebaseStorage;
+        public List<Novedad> ListaNovedades { get; set; }
 
         public Novedades()
         {
             InitializeComponent();
-
-            client = new FireSharp.FirebaseClient(config);
+            ListaNovedades = new List<Novedad>();
+        client = new FireSharp.FirebaseClient(config);
             firebaseStorage = new FirebaseStorage("horsebooking-54bbe.appspot.com", new FirebaseStorageOptions
             {
                 AuthTokenAsyncFactory = () => Task.FromResult("AIzaSyAMBaq52-eEyy_wMCDnTlx3gilW-gXRyfo"),
@@ -129,9 +130,42 @@ namespace EscritorioHorseBooking
             }
         }
 
-        private void verNoticias_Click(object sender, RoutedEventArgs e)
+        public class Novedad
         {
+            public string Titulo { get; set; }
+            public string Descripcion { get; set; }
+            public string FechaInicio { get; set; }
+        }
 
+        private async void verNoticias_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FirebaseResponse response = await client.GetAsync("novedades/");
+                var data = JsonConvert.DeserializeObject<Dictionary<string, Novedad>>(response.Body);
+                if (data == null)
+                {
+                    MessageBox.Show("No se encontraron datos.");
+                    return;
+                }
+
+                ListaNovedades.Clear();
+                foreach (var item in data.Values)
+                {
+                    ListaNovedades.Add(item);
+                }
+
+                dataGridClases.ItemsSource = ListaNovedades;
+                dataGridClases.Items.Refresh();
+            }
+            catch (JsonException jsonEx)
+            {
+                MessageBox.Show("Error al parsear los datos de Firebase: " + jsonEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar clases desde Firebase: " + ex.Message);
+            }
         }
     }
 }
