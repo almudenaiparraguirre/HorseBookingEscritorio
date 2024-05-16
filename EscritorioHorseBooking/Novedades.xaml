@@ -21,15 +21,15 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
         <Menu DockPanel.Dock="Top" Background="#7BB8B1" Foreground="White">
             <MenuItem Header="Inicio" Click="Inicio_Click"/>
             <MenuItem Header="Novedades" Foreground="Black" Background="AliceBlue"/>
             <MenuItem Header="Clases" Click="Clases_Click"/>
-            <MenuItem Header="Chat" Click="Chat_Click"/>
-            <MenuItem Header="Perfil" Click="PerfilUsuario_Click"/>
-        </Menu>
+                <MenuItem Header="Chat" Click="Chat_Click"/>
+            </Menu>
 
         <TextBlock Text="Novedades de la hípica" Grid.Row="1" HorizontalAlignment="Center"
                    FontSize="20" Foreground="AliceBlue" FontWeight="Bold" Margin="0,10,0,0"
@@ -53,9 +53,18 @@
                 Height="25" Click="crearNovedad_Click" Margin="0,20,0,0"
                 Background="AliceBlue" Grid.Row="8" RenderTransformOrigin="0.552,-6.572"/>
 
-            <Button x:Name="crearClase" Content="Ver noticias creadas" Width="120" 
-                Height="25" Margin="0,20,0,0"
+            <Button x:Name="verNoticias" Content="Ver noticias creadas" Width="120" 
+                Height="25" Margin="0,20,0,0" Click="verNoticias_Click"
                 Background="AliceBlue" Grid.Row="9"/>
-    </Grid>
+
+            <DataGrid x:Name="dataGridClases" Grid.Row="10" Grid.ColumnSpan="3" Margin="10,20,10,10"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Título" Binding="{Binding Titulo}"/>
+                    <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}"/>
+                    <DataGridTextColumn Header="Fecha de Inicio" Binding="{Binding FechaInicio}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </ScrollViewer>
 </Window>

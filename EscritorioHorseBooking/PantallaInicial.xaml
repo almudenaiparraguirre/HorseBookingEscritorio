@@ -21,7 +21,6 @@
             <MenuItem Header="Novedades" Click="Novedades_Click"/>
             <MenuItem Header="Clases" Click="Clases_Click"/>
             <MenuItem Header="Chat" Click="Chat_Click"/>
-            <MenuItem Header="Perfil" Click="PerfilUsuario_Click"/>
         </Menu>
 
         <TextBlock Text="Bienvenido a HorseBooking" FontSize="20" HorizontalAlignment="Center"

@@ -12,7 +12,6 @@
             <MenuItem Header="Novedades" Click="Novedades_Click"/>
             <MenuItem Header="Clases" Click="Clases_Click"/>
             <MenuItem Header="Chat" Foreground="Black" Background="AliceBlue"/>
-            <MenuItem Header="Perfil" Click="PerfilUsuario_Click"/>
         </Menu>
     </Grid>
 </Window>

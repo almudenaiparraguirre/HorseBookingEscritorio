@@ -1,9 +1,12 @@
-﻿using FireSharp.Config;
+﻿using Firebase.Storage;
+using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,12 +34,18 @@ namespace EscritorioHorseBooking
         };
         IFirebaseClient client; 
         public List<Clase> ListaClases { get; set; }
+        FirebaseStorage firebaseStorage;
 
         public crearClase()
         {
             InitializeComponent();
             client = new FireSharp.FirebaseClient(config);
             ListaClases = new List<Clase>();
+            firebaseStorage = new FirebaseStorage("horsebooking-54bbe.appspot.com", new FirebaseStorageOptions
+            {
+                AuthTokenAsyncFactory = () => Task.FromResult("AIzaSyAMBaq52-eEyy_wMCDnTlx3gilW-gXRyfo"),
+                ThrowOnCancel = true
+            });
             if (client == null)
             {
                 MessageBox.Show("Error en la conexión a Firebase");
@@ -165,6 +174,28 @@ namespace EscritorioHorseBooking
 
                 FirebaseResponse response = await client.PushAsync("clases/", clase);
                 MessageBox.Show("Clase creada exitosamente.");
+
+                if (displayImage.Source != null)
+                {
+                    try
+                    {
+                        var stream = new MemoryStream();
+                        var encoder = new PngBitmapEncoder();
+                        encoder.Frames.Add(BitmapFrame.Create((BitmapSource)displayImage.Source));
+                        encoder.Save(stream);
+                        stream.Position = 0;
+
+                        var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Body);
+                        string claseId = result["name"]; 
+                        await client.UpdateAsync($"clases/{claseId}", new { id = claseId, clase});
+                        var storageReference = firebaseStorage.Child("imagenesClases").Child($"{claseId}.png");
+                        await storageReference.PutAsync(stream);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al guardar la imagen: {ex.Message}");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -172,6 +203,15 @@ namespace EscritorioHorseBooking
             }
         }
 
+        private void LoadImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Seleccionar imagen";
+            openFileDialog.Filter = "Archivos de Imagen (*.jpg;*.jpeg;*.gif;*.bmp;*.png)|*.jpg;*.jpeg;*.gif;*.bmp;*.png";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                displayImage.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+            }
+        }
     }
 }
-

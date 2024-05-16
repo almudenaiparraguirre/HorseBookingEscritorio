@@ -58,9 +58,15 @@ namespace EscritorioHorseBooking
 
             FirebaseResponse response = await client.PushAsync("novedades/", new { titulo = tituloNovedad, descripcion = descripcion, fecha = DateTime.Now });
             var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Body);
-            string novedadId = result["name"];
-            await client.UpdateAsync($"novedades/{novedadId}", new { id = novedadId, titulo = tituloNovedad, descripcion = descripcion, fecha = DateTime.Now });
+            string novedadId = result["name"];  
 
+            await client.UpdateAsync($"novedades/{novedadId}", new { id = novedadId, titulo = tituloNovedad, descripcion = descripcion, fecha = DateTime.Now });
+            FirebaseResponse checkExistence = await client.GetAsync($"novedades/{novedadId}");
+            if (checkExistence.Body == "null")
+            {
+                MessageBox.Show("Error: Novedad no encontrada después de creación, no se puede cargar la imagen.");
+                return;
+            }
             if (displayImage.Source != null)
             {
                 try
@@ -72,6 +78,7 @@ namespace EscritorioHorseBooking
                     stream.Position = 0;
 
                     var storageReference = firebaseStorage.Child("imagenesNovedades").Child($"{novedadId}.png");
+                    MessageBox.Show("Generated Novedad ID: " + novedadId);
                     await storageReference.PutAsync(stream);
                 }
                 catch (Exception ex)
@@ -120,6 +127,11 @@ namespace EscritorioHorseBooking
             {
                 displayImage.Source = new BitmapImage(new Uri(openFileDialog.FileName));
             }
+        }
+
+        private void verNoticias_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

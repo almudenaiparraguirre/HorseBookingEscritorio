@@ -31,6 +31,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Menu DockPanel.Dock="Top" Background="#7BB8B1" Foreground="White">
@@ -38,7 +39,6 @@
                 <MenuItem Header="Novedades" Click="Novedades_Click"/>
                 <MenuItem Header="Clases" Foreground="Black" Background="AliceBlue"/>
                 <MenuItem Header="Chat" Click="Chat_Click"/>
-                <MenuItem Header="Perfil" Click="PerfilUsuario_Click"/>
             </Menu>
 
             <TextBlock Text="Crear clase" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center"
@@ -69,15 +69,15 @@
                    VerticalAlignment="Center"/>
             <ComboBox Name="comboBoxHora" Grid.Column="0" Grid.Row="9" Margin="15,10,15,0"
                   Height="20" Width="50" HorizontalAlignment="Left">
-                <ComboBoxItem Content="1"/>
-                <ComboBoxItem Content="2"/>
-                <ComboBoxItem Content="3"/>
-                <ComboBoxItem Content="4"/>
-                <ComboBoxItem Content="5"/>
-                <ComboBoxItem Content="6"/>
-                <ComboBoxItem Content="7"/>
-                <ComboBoxItem Content="8"/>
-                <ComboBoxItem Content="9"/>
+                <ComboBoxItem Content="01"/>
+                <ComboBoxItem Content="02"/>
+                <ComboBoxItem Content="03"/>
+                <ComboBoxItem Content="04"/>
+                <ComboBoxItem Content="05"/>
+                <ComboBoxItem Content="06"/>
+                <ComboBoxItem Content="07"/>
+                <ComboBoxItem Content="08"/>
+                <ComboBoxItem Content="09"/>
                 <ComboBoxItem Content="10"/>
                 <ComboBoxItem Content="11"/>
                 <ComboBoxItem Content="12"/>
@@ -96,16 +96,16 @@
             </ComboBox>
             <ComboBox Name="comboBoxMinutos" Grid.Column="0" Grid.Row="9" Margin="80,10,15,0"
                   Height="20" Width="50" HorizontalAlignment="Left">
-                <ComboBoxItem Content="0"/>
-                <ComboBoxItem Content="1"/>
-                <ComboBoxItem Content="2"/>
-                <ComboBoxItem Content="3"/>
-                <ComboBoxItem Content="4"/>
-                <ComboBoxItem Content="5"/>
-                <ComboBoxItem Content="6"/>
-                <ComboBoxItem Content="7"/>
-                <ComboBoxItem Content="8"/>
-                <ComboBoxItem Content="9"/>
+                <ComboBoxItem Content="00"/>
+                <ComboBoxItem Content="01"/>
+                <ComboBoxItem Content="02"/>
+                <ComboBoxItem Content="03"/>
+                <ComboBoxItem Content="04"/>
+                <ComboBoxItem Content="05"/>
+                <ComboBoxItem Content="06"/>
+                <ComboBoxItem Content="07"/>
+                <ComboBoxItem Content="08"/>
+                <ComboBoxItem Content="09"/>
                 <ComboBoxItem Content="10"/>
                 <ComboBoxItem Content="11"/>
                 <ComboBoxItem Content="12"/>
@@ -164,10 +164,10 @@
             <TextBox x:Name="precioTextBox" Grid.Row="9" Grid.Column="1" Margin="10,5,10,5"
                  Width="100" HorizontalAlignment="Left"/>
 
-            <TextBlock Text="Disciplina de la clase" Grid.Column="2" Grid.Row="8" Margin="15,15,0,0"
+            <TextBlock Text="Disciplina de la clase" Grid.Column="1" Grid.Row="10" Margin="15,15,0,0"
                    HorizontalAlignment="Left" FontSize="12" Foreground="AliceBlue"
                    VerticalAlignment="Center"/>
-            <ComboBox Name="comboBoxDisciplina" Grid.Column="2" Grid.Row="9" Margin="15,10,15,0"
+            <ComboBox Name="comboBoxDisciplina" Grid.Column="1" Grid.Row="11" Margin="15,10,15,0"
                   Height="20" HorizontalAlignment="Left" Width="180">
                 <ComboBoxItem Content="Doma"/>
                 <ComboBoxItem Content="Salto"/>
@@ -186,15 +186,22 @@
                 <ComboBoxItem Content="Julia"/>
             </ComboBox>
 
-            <Button x:Name="crear" Grid.Column="1" Grid.Row="12" Content="Crear clase"
-                Width="80" VerticalAlignment="Bottom" Height="25" Background="AliceBlue"
-                 Click="crearClase_Click"/>
+            <Button Content="Cargar imagen" Click="LoadImage_Click" Margin="10" 
+                    Width="100" VerticalAlignment="Top" Grid.Row="9" Background="AliceBlue"
+                    Grid.Column="2"/>
+            <Image x:Name="displayImage" Grid.Row="11" Grid.RowSpan="10" Width="200" Height="150" Margin="10" 
+                   Stretch="UniformToFill" VerticalAlignment="Top" Grid.Column="2"/>
 
-            <Button x:Name="verClases" Grid.Column="1" Grid.Row="13" Content="Ver clases"
+            <Button x:Name="crear" Grid.Column="1" Grid.Row="13" Content="Crear clase"
+                Width="80" VerticalAlignment="Bottom" Height="25" Background="AliceBlue"
+                 Click="crearClase_Click" Margin="0,20,0,0"/>
+
+            <Button x:Name="verClases" Grid.Column="1" Grid.Row="14" Content="Ver clases"
                 Width="80" VerticalAlignment="Bottom" Height="25" Background="AliceBlue"
                     Click="VerClases_Click" Margin="0,20,0,0"/>
 
-            <DataGrid x:Name="dataGridClases" Grid.Row="14" Grid.ColumnSpan="3" Margin="10" AutoGenerateColumns="False">
+            <DataGrid x:Name="dataGridClases" Grid.Row="15" Grid.ColumnSpan="3" Margin="10,20,10,10"
+                      AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Título" Binding="{Binding Titulo}"/>
                     <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}"/>
