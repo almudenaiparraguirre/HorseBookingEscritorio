@@ -89,8 +89,6 @@ namespace EscritorioHorseBooking
             }
         }
 
-
-
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
             var pantalla = new PantallaInicial();
