@@ -186,8 +186,8 @@ namespace EscritorioHorseBooking
                         stream.Position = 0;
 
                         var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Body);
-                        string claseId = result["name"]; 
-                        await client.UpdateAsync($"clases/{claseId}", new { id = claseId, clase});
+                        string claseId = result["name"];
+                        await client.UpdateAsync($"clases/{claseId}", new { id = claseId, clase });
                         var storageReference = firebaseStorage.Child("imagenesClases").Child($"{claseId}.png");
                         await storageReference.PutAsync(stream);
                     }
